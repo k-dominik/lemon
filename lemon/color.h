@@ -22,7 +22,7 @@
 #include<vector>
 #include<lemon/math.h>
 #include<lemon/maps.h>
-
+#include<lemon/export_config.h>
 
 ///\ingroup misc
 ///\file
@@ -62,35 +62,35 @@ namespace lemon {
   };
 
   /// White color constant
-  extern const Color WHITE;
+  extern const LEMON_EXPORT Color WHITE;
   /// Black color constant
-  extern const Color BLACK;
+  extern const LEMON_EXPORT Color BLACK;
   /// Red color constant
-  extern const Color RED;
+  extern const LEMON_EXPORT Color RED;
   /// Green color constant
-  extern const Color GREEN;
+  extern const LEMON_EXPORT Color GREEN;
   /// Blue color constant
-  extern const Color BLUE;
+  extern const LEMON_EXPORT Color BLUE;
   /// Yellow color constant
-  extern const Color YELLOW;
+  extern const LEMON_EXPORT Color YELLOW;
   /// Magenta color constant
-  extern const Color MAGENTA;
+  extern const LEMON_EXPORT Color MAGENTA;
   /// Cyan color constant
-  extern const Color CYAN;
+  extern const LEMON_EXPORT Color CYAN;
   /// Grey color constant
-  extern const Color GREY;
+  extern const LEMON_EXPORT Color GREY;
   /// Dark red color constant
-  extern const Color DARK_RED;
+  extern const LEMON_EXPORT Color DARK_RED;
   /// Dark green color constant
-  extern const Color DARK_GREEN;
+  extern const LEMON_EXPORT Color DARK_GREEN;
   /// Drak blue color constant
-  extern const Color DARK_BLUE;
+  extern const LEMON_EXPORT Color DARK_BLUE;
   /// Dark yellow color constant
-  extern const Color DARK_YELLOW;
+  extern const LEMON_EXPORT Color DARK_YELLOW;
   /// Dark magenta color constant
-  extern const Color DARK_MAGENTA;
+  extern const LEMON_EXPORT Color DARK_MAGENTA;
   /// Dark cyan color constant
-  extern const Color DARK_CYAN;
+  extern const LEMON_EXPORT Color DARK_CYAN;
 
   ///Map <tt>int</tt>s to different <tt>Color</tt>s
 

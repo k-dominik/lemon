@@ -19,6 +19,7 @@
 #ifndef LEMON_TOLERANCE_H
 #define LEMON_TOLERANCE_H
 
+#include <lemon/export_config.h>
 ///\ingroup misc
 ///\file
 ///\brief A basic tool to handle the anomalies of calculation with
@@ -48,7 +49,7 @@ namespace lemon {
   ///\sa Tolerance<long double>
 
   template<class T>
-  class Tolerance
+  class LEMON_EXPORT Tolerance
   {
   public:
     typedef T Value;
@@ -88,7 +89,7 @@ namespace lemon {
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
-  class Tolerance<float>
+  class LEMON_EXPORT Tolerance<float>
   {
     static float def_epsilon;
     float _epsilon;
@@ -139,7 +140,7 @@ namespace lemon {
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
-  class Tolerance<double>
+  class LEMON_EXPORT Tolerance<double>
   {
     static double def_epsilon;
     double _epsilon;
@@ -190,7 +191,7 @@ namespace lemon {
   ///\sa Tolerance
   ///\relates Tolerance
   template<>
-  class Tolerance<long double>
+  class LEMON_EXPORT Tolerance<long double>
   {
     static long double def_epsilon;
     long double _epsilon;

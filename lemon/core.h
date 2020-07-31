@@ -26,6 +26,7 @@
 #include <lemon/bits/enable_if.h>
 #include <lemon/bits/traits.h>
 #include <lemon/assert.h>
+#include <lemon/export_config.h>
 
 // Disable the following warnings when compiling with MSVC:
 // C4250: 'class1' : inherits 'class2::member' via dominance
@@ -75,7 +76,7 @@ namespace lemon {
 #ifdef LEMON_ONLY_TEMPLATES
   const Invalid INVALID = Invalid();
 #else
-  extern const Invalid INVALID;
+  extern const LEMON_EXPORT Invalid INVALID;
 #endif
 
   /// \addtogroup gutils

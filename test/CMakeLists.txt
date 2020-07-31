@@ -90,6 +90,12 @@ IF(LEMON_HAVE_LP)
       COMMAND ${CMAKE_COMMAND} -E copy ${GLPK_BIN_DIR}/libltdl3.dll ${TARGET_PATH}
       COMMAND ${CMAKE_COMMAND} -E copy ${GLPK_BIN_DIR}/zlib1.dll ${TARGET_PATH}
     )
+    IF(BUILD_SHARED_LIBS)
+      add_custom_command ( TARGET lp_test POST_BUILD
+          COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $<TARGET_FILE:lemon> $<TARGET_FILE_DIR:lp_test>
+      )
+    ENDIF()
   ENDIF()
 
   IF(WIN32 AND LEMON_HAVE_CPLEX)
@@ -98,6 +104,12 @@ IF(LEMON_HAVE_LP)
     ADD_CUSTOM_COMMAND(TARGET lp_test POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy ${ILOG_CPLEX_DLL} ${TARGET_PATH}
     )
+    IF(BUILD_SHARED_LIBS)
+      add_custom_command ( TARGET lp_test POST_BUILD
+          COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $<TARGET_FILE:lemon> $<TARGET_FILE_DIR:lp_test>
+      )
+    ENDIF()
   ENDIF()
 ENDIF()
 
@@ -132,6 +144,12 @@ IF(LEMON_HAVE_MIP)
       COMMAND ${CMAKE_COMMAND} -E copy ${GLPK_BIN_DIR}/libltdl3.dll ${TARGET_PATH}
       COMMAND ${CMAKE_COMMAND} -E copy ${GLPK_BIN_DIR}/zlib1.dll ${TARGET_PATH}
     )
+    IF(BUILD_SHARED_LIBS)
+      add_custom_command ( TARGET mip_test POST_BUILD
+          COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $<TARGET_FILE:lemon> $<TARGET_FILE_DIR:mip_test>
+      )
+    ENDIF()
   ENDIF()
 
   IF(WIN32 AND LEMON_HAVE_CPLEX)
@@ -140,6 +158,12 @@ IF(LEMON_HAVE_MIP)
     ADD_CUSTOM_COMMAND(TARGET mip_test POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy ${ILOG_CPLEX_DLL} ${TARGET_PATH}
     )
+    IF(BUILD_SHARED_LIBS)
+      add_custom_command ( TARGET mip_test POST_BUILD
+          COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $<TARGET_FILE:lemon> $<TARGET_FILE_DIR:mip_test>
+      )
+    ENDIF()
   ENDIF()
 ENDIF()
 
@@ -158,4 +182,13 @@ FOREACH(TEST_NAME ${TESTS})
       ADD_TEST(${TEST_NAME} ${TEST_NAME})
     ENDIF()
   ADD_DEPENDENCIES(check ${TEST_NAME})
+  IF(WIN32)
+    IF(BUILD_SHARED_LIBS)
+      add_custom_command ( TARGET ${TEST_NAME} POST_BUILD
+          COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $<TARGET_FILE:lemon> $<TARGET_FILE_DIR:${TEST_NAME}>
+      )
+    ENDIF()
+  ENDIF()
+
 ENDFOREACH()

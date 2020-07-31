@@ -80,6 +80,8 @@
 #include <lemon/bits/windows.h>
 #endif
 
+#include <lemon/export_config.h>
+
 ///\ingroup misc
 ///\file
 ///\brief Mersenne Twister random number generator
@@ -998,7 +1000,7 @@ namespace lemon {
   };
 
 
-  extern Random rnd;
+  extern LEMON_EXPORT Random rnd;
 
 }
 

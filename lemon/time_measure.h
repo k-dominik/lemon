@@ -35,6 +35,7 @@
 #include <fstream>
 #include <iostream>
 #include <lemon/math.h>
+#include <lemon/export_config.h>
 
 namespace lemon {
 
@@ -56,7 +57,7 @@ namespace lemon {
   /// In most cases, perhaps the \ref Timer or the \ref TimeReport
   /// class is what you want to use instead.
 
-  class TimeStamp
+  class LEMON_EXPORT TimeStamp
   {
     double utime;
     double stime;
